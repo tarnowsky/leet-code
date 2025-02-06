@@ -2,7 +2,7 @@
 // Created by Michal Tarnowski on 06/02/2025.
 //
 
-#include "101-Symmetric-Tree.h"
+#include <tree.h>
 
 int main() {
     TreeNode *p = TreeNode::populate_tree(

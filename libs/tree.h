@@ -76,4 +76,9 @@ public:
 
 };
 
+std::vector<int> inorder_tree_traversal(TreeNode* root);
+bool isSameTree(TreeNode* p, TreeNode* q);
+bool isSymmetric(TreeNode* root);
+
+
 #endif //TREE_H

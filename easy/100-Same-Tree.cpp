@@ -2,7 +2,7 @@
 // Created by Michal Tarnowski on 06/02/2025.
 //
 
-#include "100-Same-Tree.h"
+#include <tree.h>
 
 bool isSameTree(TreeNode* p, TreeNode* q) {
     if (!p && !q) return true;

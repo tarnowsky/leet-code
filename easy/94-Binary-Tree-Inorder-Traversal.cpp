@@ -1,7 +1,7 @@
 //
 // Created by Michal Tarnowski on 06/02/2025.
 //
-#include "94-Binary-Tree-Inorder-Traversal.h"
+#include <tree.h>
 
 std::vector<int> inorder_tree_traversal(TreeNode* root) {
     std::vector<int> result;

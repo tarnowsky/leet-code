@@ -11,5 +11,4 @@ add_executable(
         main.cpp
         libs/tree.h
         easy/101-Symmetric-Tree.cpp
-        easy/101-Symmetric-Tree.h
 )

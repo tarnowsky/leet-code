@@ -2,7 +2,7 @@
 // Created by Michal Tarnowski on 06/02/2025.
 //
 
-#include "101-Symmetric-Tree.h"
+#include <tree.h>
 
 bool isSymmetric(TreeNode* root) {
     if (!root) return true;
