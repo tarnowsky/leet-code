@@ -19,56 +19,61 @@ public:
     explicit TreeNode(const int x) : val(x), left(nullptr), right(nullptr) {}
     TreeNode(const int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 
-    static TreeNode* populate_tree(TreeNode* root, const std::initializer_list<int> values) {
-        for (auto& val : values) {
-            root = insert_node(root, val);
+    static TreeNode* populate_tree(const std::vector<std::optional<int>>& values) {
+        if (values.empty() || !values[0].has_value()) return nullptr;
+
+        auto* root = new TreeNode(values[0].value());
+        std::queue<TreeNode*> q;
+        q.push(root);
+
+        size_t i = 1;
+        while (i < values.size()) {
+            TreeNode* current = q.front();
+            q.pop();
+
+            if (i < values.size()) {
+                if (values[i].has_value()) {
+                    current->left = new TreeNode(values[i].value());
+                    q.push(current->left);
+                }
+                ++i;
+            }
+
+            if (i < values.size()) {
+                if (values[i].has_value()) {
+                    current->right = new TreeNode(values[i].value());
+                    q.push(current->right);
+                }
+                ++i;
+            }
         }
         return root;
     }
 
-    static TreeNode* insert_node(TreeNode* root, const int val) {
-        if (!root) return new TreeNode(val);
+
+    static void print_tree(TreeNode* root) {
+        if (!root) {
+            std::cout << "Empty Tree\n";
+            return;
+        }
 
         std::queue<TreeNode*> q;
         q.push(root);
 
         while (!q.empty()) {
-            TreeNode* current = q.front();
-            q.pop();
-            if (current->left) {
-                q.push(current->left);
-            } else {
-                current->left = new TreeNode(val);
-                return root;
-            }
-
-            if (current->right) {
-                q.push(current->right);
-            } else {
-                current->right = new TreeNode(val);
-                return root;
-            }
-        }
-        return root;
-    }
-
-    static void print_left_to_right(const TreeNode* root) {
-        if (!root) return;
-
-        std::queue<const TreeNode*> q;
-        q.push(root);
-
-        while (!q.empty()) {
             const TreeNode* node = q.front();
             q.pop();
-
-            std::cout << node->val << " ";
-
-            if (node->left) q.push(node->left);
-            if (node->right) q.push(node->right);
+            if (node) {
+                std::cout << node->val << " ";
+                q.push(node->left);
+                q.push(node->right);
+            } else {
+                std::cout << "null ";
+            }
         }
-
+        std::cout << std::endl;
     }
+
 };
 
 #endif //TREE_H

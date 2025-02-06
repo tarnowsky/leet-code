@@ -6,8 +6,10 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(libs)
 include_directories(easy)
 
-add_executable(leet-code
-        libs/tree.h
-        easy/100-Same-Tree.cpp
+add_executable(
+        leet-code
         main.cpp
-        easy/100-Same-Tree.h)
+        libs/tree.h
+        easy/101-Symmetric-Tree.cpp
+        easy/101-Symmetric-Tree.h
+)

@@ -2,15 +2,16 @@
 // Created by Michal Tarnowski on 06/02/2025.
 //
 
-#include "100-Same-Tree.h"
+#include "101-Symmetric-Tree.h"
 
 int main() {
-    TreeNode *p = nullptr, *q = nullptr;
+    TreeNode *p = TreeNode::populate_tree(
+        {1,2,2,std::nullopt,3,std::nullopt,3}
+    );
 
-    p = TreeNode::populate_tree(p, {1, 2, 3, 4, 5, 6, 7, 8});
-    q = TreeNode::populate_tree(q, {1, 2, 3, 4, 5, 6, 7, 8});
+    TreeNode::print_tree(p);
 
-    std::cout << (isSameTree(p, q) ? "true" : "false");
+    // std::cout << (isSymmetric(p) ? "true" : "false");
 
     return 0;
 }
