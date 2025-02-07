@@ -2,16 +2,17 @@
 // Created by Michal Tarnowski on 06/02/2025.
 //
 
-#include <tree.h>
+#include <arrays.h>
+#include <iostream>
 
 int main() {
-    TreeNode *p = TreeNode::populate_tree(
-        {1,2,2,std::nullopt,3,std::nullopt,3}
-    );
+    const std::vector nums = {2,7,11,15};
+    constexpr int target = 9;
 
-    TreeNode::print_tree(p);
-
-    // std::cout << (isSymmetric(p) ? "true" : "false");
+    std::cout << "Two Sum: ";
+    for (const auto& num : twoSum(nums, target))
+        std::cout << num << " ";
+    std::cout << std::endl;
 
     return 0;
 }

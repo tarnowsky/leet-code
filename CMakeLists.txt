@@ -9,6 +9,6 @@ include_directories(easy)
 add_executable(
         leet-code
         main.cpp
-        libs/tree.h
-        easy/101-Symmetric-Tree.cpp
+        libs/arrays.h
+        easy/1-Two-Sum.cpp
 )
