@@ -2,17 +2,14 @@
 // Created by Michal Tarnowski on 06/02/2025.
 //
 
-#include <arrays.h>
-#include <iostream>
+#include <linked_list.h>
 
 int main() {
-    const std::vector nums = {2,7,11,15};
-    constexpr int target = 9;
+    const auto* num1 = new ListNode{2,4,3};
+    const auto* num2 = new ListNode{5,6,4};
 
-    std::cout << "Two Sum: ";
-    for (const auto& num : twoSum(nums, target))
-        std::cout << num << " ";
-    std::cout << std::endl;
+    const auto* result = addTwoNumbers(num1, num2);
 
+    result->print_list();
     return 0;
 }
